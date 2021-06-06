@@ -11,11 +11,11 @@
         android:id="@+id/appName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Генератор красивых qr-кодов"
+        android:text="@string/appName"
         android:textSize="20sp"
         android:textColor="@color/textColor"
         android:layout_marginTop="50sp"
-        android:layout_marginLeft="20sp"
+        android:layout_marginStart="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -28,9 +28,9 @@
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Введите текст для кодирования:"
+        android:text="@string/text"
         android:layout_marginTop="50sp"
-        android:layout_marginLeft="20sp"
+        android:layout_marginStart="20sp"
         android:textSize="18sp"
         android:layout_below="@id/appName"
         android:textColor="@color/textColor"
@@ -40,15 +40,18 @@
 
     <EditText
         android:id="@+id/inputText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        android:gravity="top|left"
+        android:background="@drawable/edittext_frame"
+        android:scrollbars="vertical"
         android:layout_below="@id/text"
-        android:backgroundTint="@color/purple_500"
         android:layout_marginTop="50sp"
-        android:layout_marginLeft="20sp"
-        android:textColorHint="@color/textColor"
+        android:layout_marginStart="20sp"
+        android:textColor="@color/textColor"
         tools:layout_editor_absoluteX="65dp"
         tools:layout_editor_absoluteY="287dp" />
 
@@ -57,20 +60,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/inputText"
-        android:layout_marginLeft="20sp"
-        android:layout_marginTop="50sp"
-        android:backgroundTint="@color/purple_500"
-
-        android:text="Сгенерировать"
+        android:layout_marginStart="200sp"
+        android:layout_marginTop="243sp"
+        android:layout_marginEnd="20sp"
+        android:layout_marginBottom="20sp"
+        android:backgroundTint="@color/purpleColor"
+        android:text="@string/generateButton"
         app:backgroundTint="#FFFFFF" />
-
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_below="@id/generateButton"
-        android:layout_marginTop="50sp"
-        android:layout_marginLeft="20sp"/>
 
 
 </RelativeLayout>

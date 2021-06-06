@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">QR-code Generator</string>
+    <string name="app_name" translatable="false">QR-code Generator</string>
+
+    <string name="appName" translatable="false">Генератор красивых QR-кодов</string>
+    <string name="text" translatable="false">Введите текст для кодирования:</string>
+    <string name="generateButton" translatable="false">Сгенерировать</string>
 </resources>

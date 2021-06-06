@@ -40,15 +40,9 @@ public class MainActivity extends AppCompatActivity {
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Kolya Loh", Toast.LENGTH_LONG).show();
-                // Initializing the QR Encoder with your value to be encoded, type you required and Dimension
                 QRGEncoder qrgEncoder = new QRGEncoder(inputText.getText().toString(), null, QRGContents.Type.TEXT, 200);
-                qrgEncoder.setColorBlack(Color.RED);
-                qrgEncoder.setColorWhite(Color.BLUE);
                 try {
-                    // Getting QR-Code as Bitmap
                     bitmap = qrgEncoder.getBitmap();
-                    // Setting Bitmap to ImageView
                     qrImage.setImageBitmap(bitmap);
                 } catch (Exception e) {
                     e.printStackTrace();
