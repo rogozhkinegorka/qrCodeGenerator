@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backGroundColor">
+
+    <ImageView
+        android:id="@+id/qrcode"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal = "true"
+        />
+
+    <Button
+        android:id="@+id/colorButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/qrcode"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal = "true"
+        android:text="@string/colorButton1"
+        android:onClick="onClickButton" />
+    <Button
+        android:id="@+id/colorButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/colorButton1"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal = "true"
+        android:text="@string/colorButton2"
+        android:onClick="onClickButton" />
+
+
+</RelativeLayout>

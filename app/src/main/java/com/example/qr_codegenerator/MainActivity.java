@@ -1,7 +1,8 @@
-package com.example.qr_codegenerator;
+ package com.example.qr_codegenerator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -20,11 +21,11 @@ import androidmads.library.qrgenearator.QRGEncoder;
 
 public class MainActivity extends AppCompatActivity {
     private TextView appName;
-    private TextView text;
+    private TextView textView;
     private EditText inputText;
     private Button generateButton;
     Bitmap bitmap;
-    private ImageView qrImage;
+    String text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,21 +33,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         appName = findViewById(R.id.appName);
-        text = findViewById(R.id.text);
+        textView = findViewById(R.id.textView);
         inputText = findViewById(R.id.inputText);
         generateButton = findViewById(R.id.generateButton);
-        qrImage = findViewById(R.id.image);
 
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                QRGEncoder qrgEncoder = new QRGEncoder(inputText.getText().toString(), null, QRGContents.Type.TEXT, 200);
+                text = inputText.getText().toString();
+                QRGEncoder qrgEncoder = new QRGEncoder(text, null, QRGContents.Type.TEXT, 200);
+                //qrgEncoder.setColorBlack(Color.RED);
+                //qrgEncoder.setColorWhite(Color.BLUE);
                 try {
                     bitmap = qrgEncoder.getBitmap();
-                    qrImage.setImageBitmap(bitmap);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                Intent i = new Intent(MainActivity.this, DesignChooseActivity.class);
+                startActivity(i);
 
             }
         });

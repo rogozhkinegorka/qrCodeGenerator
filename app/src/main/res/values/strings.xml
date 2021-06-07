@@ -4,4 +4,12 @@
     <string name="appName" translatable="false">Генератор красивых QR-кодов</string>
     <string name="text" translatable="false">Введите текст для кодирования:</string>
     <string name="generateButton" translatable="false">Сгенерировать</string>
+
+    <string name="chooseDesignType" translatable="false">Выберите тип дизайна:</string>
+    <string name="designButton1" translatable="false">Изменение цвета и формы</string>
+    <string name="designButton2" translatable="false">Добавление логотипа</string>
+    <string name="designButton3" translatable="false">Применение стиля</string>
+
+    <string name="colorButton1" translatable="false">Цвет фона</string>
+    <string name="colorButton2" translatable="false">Цвет элементов</string>
 </resources>

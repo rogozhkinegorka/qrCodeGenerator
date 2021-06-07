@@ -25,7 +25,7 @@
         tools:ignore="InvalidId" />
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text"
@@ -48,12 +48,11 @@
         android:gravity="top|left"
         android:background="@drawable/edittext_frame"
         android:scrollbars="vertical"
-        android:layout_below="@id/text"
+        android:layout_below="@id/textView"
         android:layout_marginTop="50sp"
         android:layout_marginStart="20sp"
-        android:textColor="@color/textColor"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="287dp" />
+        android:layout_marginEnd="20sp"
+        android:textColor="@color/textColor" />
 
     <Button
         android:id="@+id/generateButton"
