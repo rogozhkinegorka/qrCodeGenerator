@@ -2,12 +2,14 @@ package com.example.qr_codegenerator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.jaredrummler.android.colorpicker.ColorPickerDialog;
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
@@ -19,10 +21,10 @@ import androidmads.library.qrgenearator.QRGEncoder;
 public class ShapeColorActivity extends AppCompatActivity implements ColorPickerDialogListener {
 
     Bitmap bitmap;
-    String text = "LIT1533";
+    String text = DataTransfer.getText();
     QRGEncoder qrgEncoder = new QRGEncoder(text, null, QRGContents.Type.TEXT, 500);
     private ImageView qrcode;
-    Button colorButton1, colorButton2;
+    Button colorButton1, colorButton2, nextButton;
     private static final int firstId = 1,secondId = 2;
 
     @Override
@@ -33,9 +35,8 @@ public class ShapeColorActivity extends AppCompatActivity implements ColorPicker
         qrcode = findViewById(R.id.qrcode);
         colorButton1 = findViewById(R.id.colorButton1);
         colorButton2 = findViewById(R.id.colorButton2);
+        nextButton = findViewById(R.id.nextButton);
 
-        //qrgEncoder.setColorBlack(Color.RED);
-        //qrgEncoder.setColorWhite(Color.BLUE);
         try {
             bitmap = qrgEncoder.getBitmap();
             qrcode.setImageBitmap(bitmap);
@@ -48,7 +49,7 @@ public class ShapeColorActivity extends AppCompatActivity implements ColorPicker
         switch (id) {
             case 1:
                 ColorPickerDialog.newBuilder()
-                        .setColor(Color.WHITE)
+                        .setColor(DataTransfer.getWhiteColor())
                         .setDialogType(ColorPickerDialog.TYPE_PRESETS)
                         .setAllowCustom(true)
                         .setAllowPresets(true)
@@ -58,7 +59,7 @@ public class ShapeColorActivity extends AppCompatActivity implements ColorPicker
                 break;
             case 2:
                 ColorPickerDialog.newBuilder()
-                        .setColor(Color.BLACK)
+                        .setColor(DataTransfer.getBlackColor())
                         .setDialogType(ColorPickerDialog.TYPE_PRESETS)
                         .setAllowCustom(true)
                         .setAllowPresets(true)
@@ -78,6 +79,11 @@ public class ShapeColorActivity extends AppCompatActivity implements ColorPicker
             case R.id.colorButton2:
                 createColorPickerDialog(secondId);
                 break;
+            case R.id.nextButton:
+                DataTransfer.setQRcode(bitmap);
+                Intent i = new Intent(ShapeColorActivity.this, SaveActivity.class);
+                startActivity(i);
+                break;
         }
     }
 
@@ -85,9 +91,11 @@ public class ShapeColorActivity extends AppCompatActivity implements ColorPicker
     public void onColorSelected(int dialogId, int color) {
         switch (dialogId) { // смотрим, какая кнопка нажата
             case firstId:
+                DataTransfer.setWhiteColor(color);
                 qrgEncoder.setColorWhite(color);
                 break;
             case secondId:
+                DataTransfer.setBlackColor(color);
                 qrgEncoder.setColorBlack(color);
                 break;
         }

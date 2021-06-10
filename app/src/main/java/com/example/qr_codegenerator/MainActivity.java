@@ -24,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private EditText inputText;
     private Button generateButton;
-    Bitmap bitmap;
-    String text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,18 +38,9 @@ public class MainActivity extends AppCompatActivity {
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                text = inputText.getText().toString();
-                QRGEncoder qrgEncoder = new QRGEncoder(text, null, QRGContents.Type.TEXT, 200);
-                //qrgEncoder.setColorBlack(Color.RED);
-                //qrgEncoder.setColorWhite(Color.BLUE);
-                try {
-                    bitmap = qrgEncoder.getBitmap();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                DataTransfer.setText(inputText.getText().toString());
                 Intent i = new Intent(MainActivity.this, DesignChooseActivity.class);
                 startActivity(i);
-
             }
         });
     }

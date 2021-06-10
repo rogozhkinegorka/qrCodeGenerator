@@ -12,4 +12,8 @@
 
     <string name="colorButton1" translatable="false">Цвет фона</string>
     <string name="colorButton2" translatable="false">Цвет элементов</string>
+    <string name="nextButton" translatable="false">Далее</string>
+
+    <string name="saveButton" translatable="false">Сохранить</string>
+    <string name="shareButton" translatable="false">Поделиться</string>
 </resources>
