@@ -16,4 +16,6 @@
 
     <string name="saveButton" translatable="false">Сохранить</string>
     <string name="shareButton" translatable="false">Поделиться</string>
+
+    <string name="addLogoButton" translatable="false">Загрузить логотип</string>
 </resources>

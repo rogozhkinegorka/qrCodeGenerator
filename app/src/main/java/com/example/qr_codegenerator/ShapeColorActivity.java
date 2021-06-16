@@ -18,11 +18,12 @@ import com.jaredrummler.android.colorpicker.ColorShape;
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 
+
 public class ShapeColorActivity extends AppCompatActivity implements ColorPickerDialogListener {
 
-    Bitmap bitmap;
+    Bitmap bitmap = null;
     String text = DataTransfer.getText();
-    QRGEncoder qrgEncoder = new QRGEncoder(text, null, QRGContents.Type.TEXT, 500);
+    QRGEncoder2 qrgEncoder = new QRGEncoder2(text, null, "TEXT_TYPE", 500);
     private ImageView qrcode;
     Button colorButton1, colorButton2, nextButton;
     private static final int firstId = 1,secondId = 2;
@@ -39,6 +40,11 @@ public class ShapeColorActivity extends AppCompatActivity implements ColorPicker
 
         try {
             bitmap = qrgEncoder.getBitmap();
+            if(bitmap==null){
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "Пора покормить кота!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
             qrcode.setImageBitmap(bitmap);
         } catch (Exception e) {
             e.printStackTrace();

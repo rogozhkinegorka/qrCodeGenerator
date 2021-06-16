@@ -7,26 +7,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidmads.library.qrgenearator.QRGContents;
-import androidmads.library.qrgenearator.QRGEncoder;
 
 public class DesignChooseActivity extends AppCompatActivity {
-
-    private Button designButton1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_design_choose);
-
-        designButton1 = findViewById(R.id.designButton1);
-
-        designButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    }
+    public void onClickButton(View view) {
+        switch (view.getId()) {
+            case R.id.designButton1:
                 Intent i = new Intent(DesignChooseActivity.this, ShapeColorActivity.class);
                 startActivity(i);
-            }
-        });
+                break;
+            case R.id.designButton2:
+                i = new Intent(DesignChooseActivity.this, LogoActivity.class);
+                startActivity(i);
+                break;
+            case R.id.designButton3:
+
+                break;
+        }
     }
 }
