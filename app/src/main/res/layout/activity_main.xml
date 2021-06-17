@@ -42,16 +42,17 @@
         android:id="@+id/inputText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="50sp"
+        android:layout_marginEnd="20sp"
+        android:background="@drawable/edittext_frame"
         android:ems="10"
+        android:gravity="top|left"
         android:inputType="textMultiLine"
         android:lines="5"
-        android:gravity="top|left"
-        android:background="@drawable/edittext_frame"
+        android:maxLength="2000"
         android:scrollbars="vertical"
-        android:layout_below="@id/textView"
-        android:layout_marginTop="50sp"
-        android:layout_marginStart="20sp"
-        android:layout_marginEnd="20sp"
         android:textColor="@color/textColor" />
 
     <Button

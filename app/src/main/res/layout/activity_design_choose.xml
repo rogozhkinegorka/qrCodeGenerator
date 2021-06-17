@@ -27,7 +27,7 @@
 
     <Button
         android:id="@+id/designButton1"
-        android:layout_width="wrap_content"
+        android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView"
         android:layout_marginStart="50sp"
@@ -35,8 +35,8 @@
         android:layout_marginEnd="20sp"
         android:layout_marginBottom="20sp"
         android:backgroundTint="@color/purpleColor"
-        android:text="@string/designButton1"
-        android:onClick="onClickButton"/>
+        android:onClick="onClickButton"
+        android:text="@string/designButton1" />
 
     <Button
         android:id="@+id/designButton2"
@@ -51,16 +51,4 @@
         android:text="@string/designButton2"
         android:onClick="onClickButton"/>
 
-    <Button
-        android:id="@+id/designButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/designButton2"
-        android:layout_marginStart="50sp"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="20sp"
-        android:layout_marginBottom="20sp"
-        android:backgroundTint="@color/purpleColor"
-        android:text="@string/designButton3"
-        android:onClick="onClickButton"/>
 </RelativeLayout>

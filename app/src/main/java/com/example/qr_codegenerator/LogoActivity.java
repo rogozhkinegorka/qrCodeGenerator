@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -26,8 +27,6 @@ public class LogoActivity extends AppCompatActivity implements SeekBar.OnSeekBar
 
     Bitmap bitmap, code;
     Bitmap logo = null;
-    String text = DataTransfer.getText();
-    QRGEncoder2 qrgEncoder = new QRGEncoder2(text, null, QRGContents.Type.TEXT, 500);
     ImageView qrcode;
     SeekBar seekBar;
     static final int GALLERY_REQUEST = 1;
@@ -42,11 +41,13 @@ public class LogoActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         seekBar.setOnSeekBarChangeListener(this);
         qrcode = findViewById(R.id.qrcode);
         try {
-            code = qrgEncoder.getBitmap();
-            qrcode.setImageBitmap(code);
+            code = DataTransfer.getQRcode();
+            bitmap = code;
+            qrcode.setImageBitmap(bitmap);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        seekBar.setMax((int)Math.min((bitmap.getWidth()/16 - 20)*16, Math.sqrt(0.3 * (bitmap.getWidth() * bitmap.getWidth()-(216+bitmap.getWidth()*16)))));
     }
 
     public void onClickButton(View view) {

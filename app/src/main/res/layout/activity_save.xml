@@ -23,13 +23,13 @@
         android:text="@string/saveButton"
         android:onClick="onClickButton" />
     <Button
-        android:id="@+id/shareButton"
+        android:id="@+id/homeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/saveButton"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal = "true"
-        android:text="@string/shareButton"
+        android:text="@string/homeButton"
         android:onClick="onClickButton" />
 
 

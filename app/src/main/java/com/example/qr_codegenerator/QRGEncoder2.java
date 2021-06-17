@@ -15,6 +15,7 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import java.util.Collection;
 import java.util.EnumMap;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Map;
 
 import androidmads.library.qrgenearator.QRGContents;
@@ -200,13 +201,12 @@ public class QRGEncoder2 {
     public Bitmap getBitmap() {
         if (!encoded) return null;
         try {
-            Map<EncodeHintType, Object> hints = null;
+            Hashtable hints = new Hashtable();
             String encoding = guessAppropriateEncoding(contents);
-            //hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-            if (encoding != null) {
-                hints = new EnumMap<>(EncodeHintType.class);
+            hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+            hints.put(EncodeHintType.MARGIN, 1);
+            if (encoding != null)
                 hints.put(EncodeHintType.CHARACTER_SET, encoding);
-            }
             MultiFormatWriter writer = new MultiFormatWriter();
             BitMatrix result = writer.encode(contents, format, dimension, dimension, hints);
             int width = result.getWidth();
@@ -219,7 +219,6 @@ public class QRGEncoder2 {
                     pixels[offset + x] = result.get(x, y) ? getColorBlack() : getColorWhite();
                 }
             }
-
             Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
             bitmap.setPixels(pixels, 0, width, 0, 0, width, height);
             return bitmap;

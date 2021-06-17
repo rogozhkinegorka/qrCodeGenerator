@@ -39,8 +39,9 @@ public class SaveActivity extends AppCompatActivity {
                         "QR-код успешно сохранен!", Toast.LENGTH_SHORT);
                 toast.show();
                 break;
-            case R.id.shareButton:
-
+            case R.id.homeButton:
+                Intent i = new Intent(SaveActivity.this, MainActivity.class);
+                startActivity(i);
                 break;
         }
     }
@@ -65,16 +66,12 @@ public class SaveActivity extends AppCompatActivity {
         try {
             FileOutputStream out = new FileOutputStream(file);
             finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
-            // sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED,
-            //     Uri.parse("file://"+ Environment.getExternalStorageDirectory())));
             out.flush();
             out.close();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-// Tell the media scanner about the new file so that it is
-// immediately available to the user.
         MediaScannerConnection.scanFile(this, new String[]{file.toString()}, null,
                 new MediaScannerConnection.OnScanCompletedListener() {
                     public void onScanCompleted(String path, Uri uri) {
@@ -82,9 +79,5 @@ public class SaveActivity extends AppCompatActivity {
                         Log.i("ExternalStorage", "-> uri=" + uri);
                     }
                 });
-        /*Intent share = new Intent(Intent.ACTION_SEND);
-        share.setType("image/*");
-        share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file.getAbsoluteFile()));
-        startActivity(Intent.createChooser(share,"Share via"));*/
     }
 }

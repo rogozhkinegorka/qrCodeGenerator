@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +24,7 @@ public class ShapeColorActivity extends AppCompatActivity implements ColorPicker
 
     Bitmap bitmap = null;
     String text = DataTransfer.getText();
-    QRGEncoder2 qrgEncoder = new QRGEncoder2(text, null, "TEXT_TYPE", 500);
+    QRGEncoder2 qrgEncoder = new QRGEncoder2(text,"TEXT_TYPE", 4);
     private ImageView qrcode;
     Button colorButton1, colorButton2, nextButton;
     private static final int firstId = 1,secondId = 2;
@@ -40,11 +41,8 @@ public class ShapeColorActivity extends AppCompatActivity implements ColorPicker
 
         try {
             bitmap = qrgEncoder.getBitmap();
-            if(bitmap==null){
-                Toast toast = Toast.makeText(getApplicationContext(),
-                        "Пора покормить кота!", Toast.LENGTH_SHORT);
-                toast.show();
-            }
+            qrgEncoder = new QRGEncoder2(text,"TEXT_TYPE", bitmap.getWidth() * 16);
+            bitmap = qrgEncoder.getBitmap();
             qrcode.setImageBitmap(bitmap);
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,7 +85,7 @@ public class ShapeColorActivity extends AppCompatActivity implements ColorPicker
                 break;
             case R.id.nextButton:
                 DataTransfer.setQRcode(bitmap);
-                Intent i = new Intent(ShapeColorActivity.this, SaveActivity.class);
+                Intent i = new Intent(ShapeColorActivity.this, LogoActivity.class);
                 startActivity(i);
                 break;
         }
