@@ -8,23 +8,23 @@
 
     <ImageView
         android:id="@+id/qrcode"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_width="200dp"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal = "true"
         />
     <Button
         android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/qrcode"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
         android:layout_centerHorizontal = "true"
         android:text="@string/saveButton"
         android:onClick="onClickButton" />
     <Button
         android:id="@+id/homeButton"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/saveButton"
         android:layout_marginTop="20dp"

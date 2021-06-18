@@ -22,7 +22,8 @@ public class DesignChooseActivity extends AppCompatActivity {
                 startActivity(i);
                 break;
             case R.id.designButton2:
-
+                i = new Intent(DesignChooseActivity.this, StyleActivity.class);
+                startActivity(i);
                 break;
         }
     }
